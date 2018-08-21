@@ -38,6 +38,9 @@ const (
 	// TracerIPTagKey used to report ip of the process.
 	TracerIPTagKey = "ip"
 
+	//TracerProcessId used to report process id of the process.
+	TracerProcessId = "pid"
+
 	// TracerUUIDTagKey used to report UUID of the client process.
 	TracerUUIDTagKey = "client-uuid"
 

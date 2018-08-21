@@ -144,6 +144,7 @@ func NewTracer(
 	} else {
 		t.logger.Error("Unable to determine this host's IP address: " + err.Error())
 	}
+	t.tags = append(t.tags, Tag{key: TracerProcessId, value: os.Getpid()})
 
 	if t.options.gen128Bit {
 		if t.options.highTraceIDGenerator == nil {

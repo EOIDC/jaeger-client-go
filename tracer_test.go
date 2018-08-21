@@ -17,6 +17,7 @@ package jaeger
 import (
 	"io"
 	"net/http"
+	"os"
 	"testing"
 	"time"
 
@@ -63,6 +64,10 @@ func (s *tracerSuite) TearDownTest() {
 
 func TestTracerSuite(t *testing.T) {
 	suite.Run(t, new(tracerSuite))
+}
+
+func (s *tracerSuite) TestTracerContainPid() {
+	s.Contains(s.tracer.(*Tracer).tags, Tag{key: TracerProcessId, value: os.Getpid()})
 }
 
 func (s *tracerSuite) TestBeginRootSpan() {
